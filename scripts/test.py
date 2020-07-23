@@ -4,4 +4,4 @@ import numpy as np
 import math
 import tet
 
-print(tet.tet(2,0.5))
+print(iterate.iterate(math.exp,0.5,3))
