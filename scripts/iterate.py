@@ -38,41 +38,41 @@ def getCarleman(f,size):
     return np.matrix(result)
 
 
-def zeroIterate(f):
-    return np.matrix(np.identity(10))[1,:]
+def zeroIterate(f,size):
+    return np.matrix(np.identity(size))[1,:]
 
-def halfIterate(f):
-    return sqrtm(getCarleman(f,10))[1,:]
-
-
-
-def quarterIterate(f):
-    return sqrtm(sqrtm(getCarleman(f,10)))[1,:]
-
-def oneIterate(f):
-    return getCarleman(f,10)[1,:]
+def halfIterate(f,size):
+    return sqrtm(getCarleman(f,size))[1,:]
 
 
 
-def collectIterPoly(f,index):
+def quarterIterate(f,s):
+    return sqrtm(sqrtm(getCarleman(f,size)))[1,:]
+
+def oneIterate(f,s):
+    return getCarleman(f,size)[1,:]
+
+
+
+def collectIterPoly(f,index,size):
     
     table_x = [0,0.25,0.5,1]
     table_y = [
-        zeroIterate(f)[0,index],
-        quarterIterate(f)[0,index],
-        halfIterate(f)[0,index],
-        oneIterate(f)[0,index]
+        zeroIterate(f,size)[0,index],
+        quarterIterate(f,size)[0,index],
+        halfIterate(f,size)[0,index],
+        oneIterate(f,size)[0,index]
     ]
 
 
     
 
-    return np.polyfit(table_x,table_y,15)
+    return np.polyfit(table_x,table_y,size)
 
-def iterate(f,n):
+def iterate(f,n,size):
     result = np.array([])
     for i in range(0,5):
-        result = np.append(result,np.polyval(collectIterPoly(f,i),n))
+        result = np.append(result,np.polyval(collectIterPoly(f,i),n,size))
 
     return result
 

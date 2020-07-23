@@ -3,7 +3,7 @@ import iterate
 import cmath
 
 def tet1(x,y):
-    iterated = iterate.iterate(lambda n: pow(x,n),y)
+    iterated = iterate.iterate(lambda n: pow(x,n),y,10)
     # halftet = 0
     # for i in range(0,halfiter.shape[1]):
     #     halftet +=  halfiter[0,i]
