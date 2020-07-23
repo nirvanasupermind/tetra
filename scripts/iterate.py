@@ -72,7 +72,7 @@ def collectIterPoly(f,index,size):
 def iterate(f,n,size):
     result = np.array([])
     for i in range(0,5):
-        result = np.append(result,np.polyval(collectIterPoly(f,i,size),n,size))
+        result = np.append(result,np.polyval(collectIterPoly(f,i,size),n))
 
     return result
 
