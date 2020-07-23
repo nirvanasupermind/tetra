@@ -46,10 +46,10 @@ def halfIterate(f,size):
 
 
 
-def quarterIterate(f,s):
+def quarterIterate(f,size):
     return sqrtm(sqrtm(getCarleman(f,size)))[1,:]
 
-def oneIterate(f,s):
+def oneIterate(f,size):
     return getCarleman(f,size)[1,:]
 
 
